@@ -3,10 +3,27 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  { 
-    "rebelot/kanagawa.nvim", 
+  {
+    'rebelot/kanagawa.nvim',
     opts = {
-      theme = "dragon",
-    }
+      theme = 'dragon',
+    },
+  },
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup {
+        registries = {
+          'github:mason-org/mason-registry',
+          'github:Crashdummyy/mason-registry',
+        },
+      }
+    end,
+  },
+  {
+    'seblyng/roslyn.nvim',
+    ---@module "roslyn.config"
+    ---@type RoslynNvimConfig
+    opts = {},
   },
 }
